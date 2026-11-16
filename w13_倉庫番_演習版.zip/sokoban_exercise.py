@@ -154,7 +154,7 @@ def apply_move(board, direction_key):
     pushed_to = None
     if block in board["crates"]:
         pushed_to = (block[0] + vector[0], block[1] + vector[1])
-        if (not in_field(board, pushed_to) or pushed_to in board["solid"]):
+        if (not in_field(board, pushed_to) or pushed_to in board["solid"] or pushed_to in board["crates"]):
             return False
     board["past"].append((board["hero"], board["crates"].copy()))
     if pushed_to is not None:
